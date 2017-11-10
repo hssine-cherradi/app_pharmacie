@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-ad-project/sample.zip",
       "projectGuid": "9e07c019-e93d-4801-8008-2e774d956501",
-      "lastModifiedDate": 1510337532756,
+      "lastModifiedDate": 1510338579693,
       "creationDate": 1510336443981
     },
     "sourceDirectory": "www",
@@ -49,6 +49,7 @@
         "topLevel": true,
         "checksum": "2373ccea",
         "gitref": "",
+        "cordovaVersion": ">=3.0",
         "description": "Cordova Device Plugin"
       },
       {
@@ -66,7 +67,108 @@
         "topLevel": true,
         "checksum": "47137083",
         "gitref": "",
+        "cordovaVersion": ">=3.0",
         "description": "Cordova Splashscreen Plugin"
+      },
+      {
+        "id": "cordova-plugin-admobpro",
+        "name": "AdMob Plugin Pro",
+        "version": "2.29.27",
+        "originType": "cordova.io",
+        "origin": "cordova-plugin-admobpro",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/cordova-plugin-admobpro",
+        "selectedState": "Included",
+        "checksum": "24a7dd0b",
+        "dependsOn": [
+          "cordova-plugin-extension"
+        ],
+        "topLevel": true,
+        "cordovaVersion": ">=3.0",
+        "author": "Liming Xie",
+        "permissions": {
+          "android:name": [
+            "android.permission.INTERNET",
+            "android.permission.ACCESS_NETWORK_STATE"
+          ]
+        },
+        "description": "Ultimate Cordova Plugin for Google AdMob and DFP to monetize hybrid apps. Show mobile Ad with single line of JavaScript. Compatible with Cordova CLI, PhoneGap Build, Intel XDK/Crosswalk, Google ChromeApp, Ionic, Meteor, etc.",
+        "data": {},
+        "dependedBy": [],
+        "custom": "true"
+      },
+      {
+        "id": "cordova-plugin-extension",
+        "name": "Cordova Plugin Extension",
+        "version": "1.5.2",
+        "originType": "cordova.io",
+        "origin": "cordova-plugin-extension",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/cordova-plugin-extension",
+        "selectedState": "Included",
+        "checksum": "30dbed18",
+        "dependsOn": [],
+        "topLevel": false,
+        "cordovaVersion": ">=3.0",
+        "author": "Liming Xie",
+        "permissions": {},
+        "description": "Common interface and reusable code, as dependency of other plugins",
+        "data": {},
+        "dependedBy": [
+          "cordova-plugin-admobpro"
+        ],
+        "custom": "true"
+      },
+      {
+        "id": "cordova-plugin-x-socialsharing",
+        "name": "SocialSharing",
+        "version": "5.1.8",
+        "originType": "cordova.io",
+        "origin": "cordova-plugin-x-socialsharing",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/cordova-plugin-x-socialsharing",
+        "selectedState": "Included",
+        "checksum": "c8f46d93",
+        "dependsOn": [
+          "es6-promise-plugin"
+        ],
+        "topLevel": true,
+        "cordovaVersion": ">=3.0.0",
+        "author": "Eddy Verbruggen",
+        "permissions": {
+          "android:name": [
+            "android.permission.WRITE_EXTERNAL_STORAGE"
+          ]
+        },
+        "description": "\n    Share text, images (and other files), or a link via the native sharing widget of your device.\n    Android is fully supported, as well as iOS 6 and up. WP8 has somewhat limited support.\n  ",
+        "data": {},
+        "dependedBy": []
+      },
+      {
+        "id": "es6-promise-plugin",
+        "name": "Promise",
+        "version": "4.1.0",
+        "originType": "cordova.io",
+        "origin": "es6-promise-plugin",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/es6-promise-plugin",
+        "selectedState": "Included",
+        "checksum": "272e81c6",
+        "dependsOn": [],
+        "topLevel": false,
+        "cordovaVersion": ">=3.0.0",
+        "author": "Vlad Stirbu",
+        "permissions": {},
+        "description": "\n    A polyfill for ES6-style Promises, tracking npm es6-promise\n  ",
+        "data": {},
+        "dependedBy": [
+          "cordova-plugin-x-socialsharing"
+        ],
+        "custom": "true"
       }
     ],
     "buildConfigurations": {
@@ -125,7 +227,7 @@
           "Fullscreen": false,
           "Orientation": "portrait"
         },
-        "isActive_": true,
+        "isActive_": false,
         "certificateId_": "",
         "cordovaCLIVersion_": "6.2.0",
         "crosswalkVersion_": "23",
@@ -168,7 +270,7 @@
           "Fullscreen": false,
           "Orientation": "portrait"
         },
-        "isActive_": true,
+        "isActive_": false,
         "certificateId_": "",
         "cordovaCLIVersion_": "6.2.0",
         "crosswalkVersion_": "23",
