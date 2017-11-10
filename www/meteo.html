@@ -1,0 +1,172 @@
+ <!DOCTYPE html>
+  <html>
+    <head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+   <link type="text/css" rel="stylesheet" href="css/style.css" >
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+     <body  >
+	
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/db.js"></script>	 
+<script src="intelxdk.js"></script>         
+          
+<script src="xhr.js"></script>              
+<script src="js/app.js"></script>
+<script src="js/init-app.js"></script>
+<script src="js/init-dev.js"></script> 
+<!-- inappbrowser -->     
+<script src="cordova.js"></script>
+
+
+        
+
+		<nav class="orange" role="navigation"  id="nav_mobile"></nav>
+		
+  <div class="section no-pad-bot" id="index-banner">
+	<div class="container">
+	<content>
+
+	<center>  <img src="images/loading.gif" id="loading" style="width: 50px;"/></center>  
+
+	  
+	<div class="col s12">
+	<h4><i class='material-icons dp48'>wb_sunny</i> Météo </h4>
+	<select id="liste_ville">
+	<option source='' value=''>Sélectionner votre ville</option>
+	</select>
+
+	</div>
+		<div class="col s12">
+	<p>
+      <input type="checkbox" id="ville_fav"  />
+      <label for="ville_fav">Ville favori</label>
+    </p>
+	</div>
+		
+	<div class="col s12">
+<br>
+	<button  type="button" id="Rechercher" class="waves-effect waves-light btn orange"><i class="material-icons left" >search</i> Rechercher</button>
+
+	
+	</div>
+	<div class="col s12" id="collection">
+	</div>
+	</content>
+	</div>
+
+  </div>
+     
+		<script>
+		
+		$( document ).ready(function() {
+var ville_fav=get_l_s_by_name("ville_fav");
+if(ville_fav!=""){$('#ville_fav').attr('checked', true);}
+			
+	$( "#ville_fav").click(function() {
+		
+	if ($('#ville_fav').is(':checked')) {
+	var v_ac=$("#liste_ville").val();
+  
+	set_l_s_by_name("ville_fav",v_ac);	
+	}
+	});
+			
+  $("#loading").show();
+	$.post("http://h-cherradi.com/app_pharmacie/ws/index.php",{method:"liste_ville"}, function() {
+	},"json")
+  .done(function(result) {
+    var data_res=result.data;
+	var count=data_res.length;
+	var liste_ville="";
+	if(count>0){
+	
+	liste_ville+="<option source='' value=''>Sélectionner votre ville</option>";
+	for(i=0;i<count;i++){
+	if(ville_fav==data_res[i].url_ville){
+	liste_ville+="<option selected source='"+data_res[i].source+"' value='"+data_res[i].url_ville+"'>"+data_res[i].ville+"</option>";
+	}else{
+	liste_ville+="<option source='"+data_res[i].source+"' value='"+data_res[i].url_ville+"'>"+data_res[i].ville+"</option>";
+	
+	}
+			
+	}	
+	}
+	$("#liste_ville").html(liste_ville);
+	  $("#loading").hide();
+	
+  })
+  .fail(function() {
+  
+  $("#loading").hide(); 
+	var $toastContent = $("<span > Pas de connexion internet   </span>");
+  Materialize.toast($toastContent, 3000,"alert-danger","top");
+   
+  });
+ 
+ 
+
+ $( document ).on( "click", "#Rechercher", function() {
+  $("#loading").show();
+ var elm=$( "#liste_ville option:selected" );
+if($(elm).val()==""){ $("#loading").hide();}
+ 
+ 
+ 
+ /*----------------------*/
+ 	$.post("http://h-cherradi.com/app_pharmacie/ws/get_meteo_maroc.php?url_ville="+$(elm).text(),{}, function() {
+	},"html")
+  .done(function(result) {
+ 
+	
+	var observation_c=$(result).find("#resulta-weather-ville .observation_c").html();
+	var precipitations=$(result).find("#resulta-weather-ville .precipitations label").html();
+		var observation_date=$(result).find("#resulta-weather-ville .observation_date").html();
+var collection="";
+	collection+="<ul class='collection with-header'>"; 
+	collection+="<li class='collection-header'><h6>Météo "+$(elm).text()+"</h6></li>";
+	
+    collection+="<li class='collection-header'><h6 class='t_wb_sunny'>"+observation_date+" <i class='material-icons dp48 wb_sunny'>date_range</i></h6></li>";
+
+    collection+="<li class='collection-header'><h6 class='t_wb_sunny'>"+observation_c+" <i class='material-icons dp48 wb_sunny'>wb_sunny</i></h6></li>";
+	collection+="<li class='collection-header'><h6 class='t_wb_sunny'>"+precipitations+" <i class='material-icons dp48 wb_sunny'>wb_cloudy</i></h6></li>";
+
+	
+	collection+="</ul>";
+	
+	$("#collection").html(collection);
+	 $("#loading").hide();
+	
+  })
+  .fail(function() {
+  $("#loading").hide(); 
+	var $toastContent = $("<span > Pas de connexion internet   </span>");
+  Materialize.toast($toastContent, 3000,"alert-danger","top");
+   
+  });
+ 
+ 
+ /*----------------------*/
+
+ 
+ 
+
+ 
+ });
+ 
+		});
+		
+		</script>
+
+    </body>
+  </html>

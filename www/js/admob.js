@@ -3,7 +3,7 @@
   if( /(android)/i.test(navigator.userAgent) ) {
     admobid = { 
       banner: 'ca-app-pub-5071984715788454/8841042127',
-     // banner: 'ca-app-pub-8680824403507387/3121366566',
+    //  banner: 'ca-app-pub-8680824403507387/3121366566',
       interstitial: 'ca-app-pub-5071984715788454/2790848523'
     };
   } else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) {
@@ -38,11 +38,11 @@
 		//alert( 'admob plugin not ready' ); 
 		return; 
 	}
-// commentaire 06 03 2017 
-    initAd(); 
+
+    initAd();
 
     // display a banner at startup
- //   createSelectedBanner();
+    createSelectedBanner();
   }
 
   function initAd(){
@@ -67,7 +67,7 @@
       if(typeof e.originalEvent !== 'undefined') e = e.originalEvent;
       var data = e.detail || e.data || e;
 
-  /*    alert('error: ' + data.error +
+   /*  alert('error: ' + data.error +
           ', reason: ' + data.reason +
           ', adNetwork:' + data.adNetwork +
           ', adType:' + data.adType +
@@ -83,19 +83,31 @@
     $(document).on('onAdDismiss', function(e){
     });
 
-
-    // test case for #256, https://github.com/floatinghotpot/cordova-admob-pro/issues/256
-    $(document).on('backbutton', function(){
-      if(window.confirm('هل انت متأكد ؟')) navigator.app.exitApp();
+    $('#btn_create').click(createSelectedBanner);
+    $('#btn_remove').click(function(){
+      AdMob.removeBanner();
     });
 
+    $('#btn_show').click(showBannerAtPosition);
+    $('#btn_hide').click(function(){
+      AdMob.hideBanner();
+    });
+
+    // test interstitial ad
+   /* $('#btn_prepare').click(function(){ */
+       /* alert($('#autoshow').is(':checked'));*/
+      AdMob.prepareInterstitial({
+        adId:admobid.interstitial,
+        autoShow: true,
+      });
+   /* });*/
+
+    $('#Rechercher').click(function(){
+      AdMob.showInterstitial();
+    });
 
   }
 
-  // test the webview resized properly
-  $(window).resize(function(){
-    $('#textinfo').html('web view: ' + $(window).width() + " x " + $(window).height());
-  });
 
   $(document).ready(function(){
     // on mobile device, we must wait the 'deviceready' event fired by cordova
