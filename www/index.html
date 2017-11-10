@@ -1,137 +1,207 @@
 <!DOCTYPE html>
-<html>
-<!--
-  * Please see the included README.md file for license terms and conditions.
-  -->
+<html lang="ab">
 <head>
-    <title>Blank Cordova Mobile App Template</title>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-
-    <!-- see http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag -->
-    <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
-    <style>
-        /* following two viewport lines are equivalent to meta viewport statement above, and is needed for Windows */
-        /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html and http://dev.w3.org/csswg/css-device-adapt/ */
-        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
-        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
-        /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
-    </style>
-
-    <!-- See explanation at the bottom of this file for info regarding placement of JS libraries. -->
-    <!-- These library references (below) are just examples to give you the general idea... -->
-    <!-- <script src="lib/mc/hammer.js"></script> -->
-    <!-- <script src="lib/ft/fastclick.js"></script> -->
-    <!-- <script src="lib/jq/jquery.js"></script> -->
-
-    <link rel="stylesheet" href="css/app.css">
-</head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>  
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Doros bac</title>
 
 
-<body>
-    <h1 class="align-center">A Blank Project Template</h1>
-    <p class="align-center">
-        To use this template as a starter app, start with init-app.js and app.js for your JavaScript code.
-        See the README.md file for more details and the comments inside index.html, app.js and init-app.js.
-    </p>
-    <br>
-    <p class="align-center">
-        <input type="button" id="id_btnHello" value="Touch Me">
-    </p>
+    <script src="lib/ft/fastclick.js"></script>
 
-    <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
-    <!-- Place your remote debugging weinre script URL here, if it does not work below. -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="http://www.doros-maroc.info/kamal_app/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="http://www.doros-maroc.info/kamal_app/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <!--  Scripts-->
+  <script src="http://www.doros-maroc.info/kamal_app/js/jquery-2.1.1.min.js"></script>
+  <script src="http://www.doros-maroc.info/kamal_app/js/materialize.js"></script>
+  <script src="http://www.doros-maroc.info/kamal_app/js/init.js"></script>  
+    <!-- AdMob plugin demo code -->
+<script>
+  // fix wp8 view port issue, see:
+  // https://github.com/floatinghotpot/cordova-admob-pro/issues/109
+  // https://coderwall.com/p/zk_2la/responsive-design-in-ie-10-on-windows-phone-8
+  // http://stackoverflow.com/questions/24007577/windows-phone-8-viewport-issue
+(function() {
+  if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+    var msViewportStyle = document.createElement("style");
+    msViewportStyle.appendChild(
+      document.createTextNode("@-ms-viewport{width:auto!important}")
+    );
+    document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+  }
+})();
+</script>
 
-    <!-- See <head> section above for additional JS libraries loaded as part of this application. -->
+<!-- optional -->
+<script type="text/javascript" src="js/jquery-1.9.js"></script>
 
-    <!-- "Phantom" cordova.js required for projects that use Cordova plugins. -->
-    <script src="cordova.js"></script>
+    <script src="intelxdk.js"></script>         
+    <script src="cordova.js"></script>          
+    <script src="xhr.js"></script>              
 
-    <!-- for your event code, see README and file comments for details -->
     <script src="js/app.js"></script>
-    <!-- for your init code, see README and file comments for details -->
     <script src="js/init-app.js"></script>
-    <!-- normalizes device and document ready events, see file for details -->
-    <script src="xdk/init-dev.js"></script>
+    <script src="js/init-dev.js"></script> 
 
-    <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
-    <!-- Place your remote debugging weinre script URL here, if it does not work above. -->
-</body>
 
-<!--
+</head>
+ <!-- inappbrowser -->     
+<script src="cordova.js"></script>
+<script>
 
-    Recommended JavaScript library load order for hybrid Cordova apps:
+$(document).on('click',"a[target='_blank']",function(e){  
+  var  lien=$(this).attr("href");
+    if(lien!=''){
+  window.open(lien, '_blank', '');
+    }
+  return false; 
+  });
 
-    * "Device-Independent" JavaScript libraries.
-    * optional: weinre debug script tag for remote console debug (see notes).
-    * Intel XDK device JavaScript library.
-    * Cordova/PhoneGap device JavaScript library.
-    * "Device-Dependent" JavaScript libraries.
-    * Application JavaScript <script> tags and libraries.
-    * optional: weinre debug script tag for remote console debug (see notes).
 
-    In complex projects, the JavaScript load order is important. You must
-    insure that the underlying device API native code finishes its init, which
-    usually takes longer than the webview init...
+</script>
+        <script>
+		var site_partage="https://play.google.com/store/apps/details?id=doros.maroc.B2017";
+		
+		
+	 function social_share()
+        {   
 
-    VERY IMPORTANT: notice that all of the libraries used in this project are
-    located within the app's local directories, which means they will get
-    bundled with the app. They are NOT being pulled in over the net. In most
-    cases, this is what you should be doing when you build a hybrid mobile
-    app. This insures that you always use the JS code that you debugged
-    against AND that you are not requiring a data connection (network
-    connection) to get the app started. If your app startup required a data
-    connection to initialize and start interaction with the user, lack of a
-    reliable network connection could be disasterous. Not to mention it
-    generally results in a slower load time. Loading locally is much
-    friendlier to your end user's data plan and their device battery.  :-)
+            window.plugins.socialsharing.share("App Doros Maroc","Telecharger cette application ",null,site_partage,function(result){
+                alert('result: ' + result);
+            }, function(result){
+                alert('error: ' + result);
+            });
+        }
+</script> 
+<script>
+$(document).ready(function(){
+	/* */
+	$.urlParam = function(name){
+    var results = new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
+	if(results){return results[1]}else{return 0;}}
+	
+	var id=$.urlParam("id");
+$(".loading").show();
+ $.ajax({
+		url     : 'http://www.doros-maroc.info/kamal_app/ws/index.php?method=listniveaux',
+		type    : 'GET',
+		dataType: 'json',
+		data    : {},
+		success : function(resp){						
+	var list="";
+	var data_g=resp.data;
+	var i=0;
+	list+="<li class='row menu'>القائمة</li>";	
+	for(i=0;i<data_g.length;i++){ 
+	list+="<li class='row collection-item'>";
+if(data_g[i].id_niveau==3){
+	list+="<a href='matiers.html?id=4' id='download-button' class='btn-large waves-effect waves-teal '>"+data_g[i].niveau+"</a>";
+	}else{
+	list+="<a href='matiers.html?id="+data_g[i].id_niveau+"' id='download-button' class='btn-large waves-effect waves-teal '>"+data_g[i].niveau+"</a>";
+	}
+	list+="</li>";
+	}
+		
+      list+="<li class='lien_face'><a  href='fb://1684327171822225'  target='_blank' >تابعنا على الفيسبوك</a></li>";
+				$("#nav-mobile").html(list);	
+		},
+		error   : function(request){
+			alert("Erreur de connexion au serveur!");
+		}
+	});	
+	
+ $.ajax({
+		url     : 'http://www.doros-maroc.info/kamal_app/ws/index.php?method=video&id='+id,
+		type    : 'GET',
+		dataType: 'json',
+		data    : {},
+		success : function(resp){
+	
+	var list="";
+	var lien="";
+	var data_g=resp.data;
+	var i=0;
 
-    NOTE: do not use a directory prefix with the cordova.js file - it is
-    inserted automatically by the build system, simulator and other tools and
-    is assumed to be in the index.html source directory. You will not find
-    this JS file anywhere in your project, it is a "phantom" library. If you
-    do see copies of this file as part of your project it should be removed to
-    avoid confusion and problems.
+	 list="<iframe width='100%' height='100%' src='https://www.youtube-nocookie.com/embed/"+data_g[0].lien+"' frameborder='0' allowfullscreen></iframe>";
+	 if (data_g[0].lien_telechargement!='') {
+	lien+="<a class='center' target='_blank'  href='"+data_g[0].lien_telechargement+"'>Télécharger</a>";
+	 };
 
-    LIBRARY NOTE: If you are using a large number of JavaScript libraries,
-    especially third-party libraries (like jQuery, {{ mustache }}, Underscore,
-    etc.) that are "independent" of the device APIs provided by the Cordova
-    library and plugins - and they are independent of your app code - your
-    app initialization will be most successful if you load these libraries
-    BEFORE the Cordova JS file, in the <head> section of your index.html file.
-    Obviously, any code that depends on Cordova APIs must be loaded AFTER the
-    cordova.js library.
 
-    Libraries that are "independent" of the device APIs are libraries that you
-    could use in a desktop browser. "Dependent" libraries are, most likely,
-    your own code that you've written specifically to work with the Cordova
-    device APIs. In some cases, if your device-dependent code requires access
-    to device-independent code to get started, you may have to use something
-    like CommonJS to force the device-dependent code to wait for the
-    device-independent code to initialize, otherwise you may have trouble
-    getting your app started.
+				$('#titre').append(data_g[0].titre)
+				$(".loading").hide();			
+				$(".video-container").html(list);	
+				$(".video-lien").html(lien);
+		},
+		error   : function(request){
+			$(".erreur").show();
+			alert("Erreur de connexion au serveur!");
+		}
+	});
+ 
+/*$(".loading").show(); 	*/
+});
 
-    Because of this added dependency on the underlying native code (device)
-    initialization, you should not use the "document ready" event to start
-    your application. You should wait for the cordova "deviceready" event
-    before you begin your application (if it uses any Cordova device APIs); in
-    practice, it is best to wait for both. (See the init-dev.js file in this
-    template for an example of how to wait for both, it generates a custom
-    "app.Ready" event that you can wait for and just forget about the other
-    events.)
+</script>
+		<!-- END  javascript -->
+<script src="http://www.doros-maroc.info/kamal_app/js/admobile_video.js"></script>
 
-    NOTE: *any* library that redefines addEventListener() or fiddles with
-    outstanding events may interfere with capturing the Cordova "deviceready"
-    event and should, therefore, be placed *BEFORE* the Cordova JS library in
-    the load order.
+<body id="video">
+  <div class="row center loading">
+    <img src="http://www.doros-maroc.info/kamal_app/img/loading_create.gif" />
+  </div>
 
-    ALSO: if you use weinre for debugging, you may have to experiment with the
-    placement of the weinre script. Some recommended locations are shown
-    within this app. If these locations do not work, you may have to
-    experiment. The optimum placement can be app-specific, primarily as a
-    function of the included JavaScript libraries and your initialization.
+  <nav class="navigation_menu" role="navigation">
+      <ul id="nav-mobile" class="side-nav">
 
--->
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+
+		<h4 id="titre"></h4>
+   	<a href="javascript:history.go(-1)"  class="btn_retour">
+		<i class="material-icons">chevron_right</i>
+	</a> 		
+  </nav>
+    <div  class="">
+<a href='fb://1684327171822225'  target="_blank"><img src="http://www.doros-maroc.info/kamal_app/img/img_pub.png" class="img_pub responsive-img">
+    </a>
+    </div>
+    <div  class="video-container">
+
+
+    </div>
+<div class="video-lien container center">
+
+</div>
+    
+	
+  
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5071984715788454",
+    enable_page_level_ads: true
+  });
+</script>
+  <footer class="footer"  >	
+  <ul>
+  <a href="index.html">
+	  <li class="waves-effect waves-light">  
+		<img src="img/home_24.png" alt="Home" />
+	  </li>
+  </a>
+  </a>  
+     
+    <a class="" onclick="social_share();" href="javascript:;">
+	  <li class="waves-effect waves-light"> 
+		<img src="img/ic_share_white_24dp.png" alt="Share" />
+	  </li>
+ 
+  </ul>  
+  
+  </footer>
+
+  </body>
 
 </html>
