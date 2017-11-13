@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-ad-project/sample.zip",
       "projectGuid": "9e07c019-e93d-4801-8008-2e774d956501",
-      "lastModifiedDate": 1510338579693,
+      "lastModifiedDate": 1510569422827,
       "creationDate": 1510336443981
     },
     "sourceDirectory": "www",
@@ -110,7 +110,7 @@
         "selectedState": "Included",
         "checksum": "30dbed18",
         "dependsOn": [],
-        "topLevel": false,
+        "topLevel": true,
         "cordovaVersion": ">=3.0",
         "author": "Liming Xie",
         "permissions": {},
@@ -131,7 +131,7 @@
         "paramvals": {},
         "sourceLocation": "plugins/cordova-plugin-x-socialsharing",
         "selectedState": "Included",
-        "checksum": "c8f46d93",
+        "checksum": "ebc9bbe9",
         "dependsOn": [
           "es6-promise-plugin"
         ],
@@ -157,9 +157,9 @@
         "paramvals": {},
         "sourceLocation": "plugins/es6-promise-plugin",
         "selectedState": "Included",
-        "checksum": "272e81c6",
+        "checksum": "15575275",
         "dependsOn": [],
-        "topLevel": false,
+        "topLevel": true,
         "cordovaVersion": ">=3.0.0",
         "author": "Vlad Stirbu",
         "permissions": {},

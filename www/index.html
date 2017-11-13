@@ -203,16 +203,20 @@
 	var adress=t[20];
 	var tel=t[26];
 
-	if (nom === undefined || nom === null) {
-	}else{
-
+	
 	if (tel === undefined || tel === null) {
 	tel="";
 	}else{
 	tel = tel.replace(" ", "");
 	tel = tel.replace(".", "");
 	}
+	
+	if (nom === undefined || nom === null) {
+	nom="";
+	}
 
+	
+	if (nom !="") {
 
 	collection+="<li class='collection-item'>";
 	collection+="<p><i class='material-icons dp48'>local_pharmacy</i> <b>"+nom+"</b></p>";
