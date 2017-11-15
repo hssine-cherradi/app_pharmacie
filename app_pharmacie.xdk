@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-ad-project/sample.zip",
       "projectGuid": "9e07c019-e93d-4801-8008-2e774d956501",
-      "lastModifiedDate": 1510758266048,
+      "lastModifiedDate": 1510760594590,
       "creationDate": 1510336443981
     },
     "sourceDirectory": "www",
@@ -268,7 +268,7 @@
         "appVersion_": "0.0.1",
         "appVersionCode_": "1",
         "appDescription_": "Vous pouvez consulter ce service pour voir la pharmacie de garde au Maroc la plus proche de vous selon les villes et les secteurs de chaque ville sur un intervalle d’une semaine du lundi au Dimanche de la semaine courante",
-        "appAuthor_": "Hssine cherradi ",
+        "appAuthor_": "Hssine cherradi  ",
         "signed_": true
       },
       "iOS": {
